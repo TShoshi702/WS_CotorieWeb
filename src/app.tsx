@@ -6,10 +6,11 @@ import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import AboutPage from './pages/AboutPage';
+import SctaPage from './pages/SctaPage';
 import { CartProvider } from './context/CartContext';
 import { LanguageProvider } from './context/LanguageContext';
 
-type Page = 'home' | 'products' | 'product-detail' | 'about';
+type Page = 'home' | 'products' | 'product-detail' | 'about' | 'scta';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -36,6 +37,8 @@ export default function App() {
         setSelectedProductId(path.split('/')[2]);
       } else if (path === '/about') {
         setCurrentPage('about');
+      } else if (path === '/scta') {
+        setCurrentPage('scta');
       }
     };
 
@@ -56,6 +59,9 @@ export default function App() {
     } else if (page === 'about') {
       window.history.pushState({}, '', '/about');
       setCurrentPage('about');
+    } else if (page === 'scta') {
+      window.history.pushState({}, '', '/scta');
+      setCurrentPage('scta');
     }
   };
 
@@ -82,6 +88,8 @@ export default function App() {
         );
       case 'about':
         return <AboutPage />;
+      case 'scta':
+        return <SctaPage />;
       default:
         return <HomePage onNavigate={navigate} onProductClick={handleProductClick} />;
     }
@@ -105,7 +113,7 @@ export default function App() {
             {renderPage()}
           </main>
 
-          <Footer />
+          <Footer onNavigate={navigate} />
 
           <CartDrawer
             isOpen={cartOpen}

@@ -22,7 +22,7 @@ const FacebookIcon = () => (
 );
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Footer() {
+export default function Footer({ onNavigate }: { onNavigate?: (page: string) => void }) {
   const { language } = useLanguage();
 
   const footerLinks = {
@@ -32,6 +32,7 @@ export default function Footer() {
       returns: '退换货政策',
       sizeGuide: '尺码指南',
       faq: '常见问题',
+      scta: '法定事项',
       aboutCotorie: '关于 COTORIE',
       brandStory: '品牌故事',
       sustainability: '可持续发展',
@@ -51,6 +52,7 @@ export default function Footer() {
       returns: '返品ポリシー',
       sizeGuide: 'サイズガイド',
       faq: 'よくある質問',
+      scta: '特定商取引法に基づく表記',
       aboutCotorie: 'COTORIE について',
       brandStory: 'ブランドストーリー',
       sustainability: 'サステナビリティ',
@@ -70,6 +72,7 @@ export default function Footer() {
       returns: 'Returns Policy',
       sizeGuide: 'Size Guide',
       faq: 'FAQ',
+      scta: 'Legal Notice',
       aboutCotorie: 'About COTORIE',
       brandStory: 'Brand Story',
       sustainability: 'Sustainability',
@@ -144,6 +147,15 @@ export default function Footer() {
                   opacity: '0.6',
                   transition: 'opacity 0.3s',
                 }}>{t.faq}</a>
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('scta'); }} style={{
+                  fontSize: '12px',
+                  color: '#ffffff',
+                  opacity: '0.6',
+                  transition: 'opacity 0.3s',
+                  cursor: 'pointer',
+                }}>{t.scta}</a>
               </li>
             </ul>
           </div>
@@ -292,6 +304,13 @@ export default function Footer() {
             display: 'flex',
             gap: '24px',
           }}>
+            <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('scta'); }} style={{
+              fontSize: '11px',
+              color: '#ffffff',
+              opacity: '0.4',
+              letterSpacing: '1px',
+              cursor: 'pointer',
+            }}>{t.scta}</a>
             <a href="#" style={{
               fontSize: '11px',
               color: '#ffffff',
