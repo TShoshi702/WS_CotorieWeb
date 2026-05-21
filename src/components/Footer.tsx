@@ -33,8 +33,10 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
       sizeGuide: '尺码指南',
       faq: '常见问题',
       scta: '法定事项',
+      contact: '联系我们',
       aboutCotorie: '关于 COTORIE',
       brandStory: '品牌故事',
+      company: '公司简介',
       sustainability: '可持续发展',
       careers: '加入我们',
       press: '媒体中心',
@@ -53,8 +55,10 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
       sizeGuide: 'サイズガイド',
       faq: 'よくある質問',
       scta: '特定商取引法に基づく表記',
+      contact: 'お問い合わせ',
       aboutCotorie: 'COTORIE について',
       brandStory: 'ブランドストーリー',
+      company: '会社概要',
       sustainability: 'サステナビリティ',
       careers: '採用情報',
       press: 'メディアセンター',
@@ -73,8 +77,10 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
       sizeGuide: 'Size Guide',
       faq: 'FAQ',
       scta: 'Legal Notice',
+      contact: 'Contact Us',
       aboutCotorie: 'About COTORIE',
       brandStory: 'Brand Story',
+      company: 'Company Profile',
       sustainability: 'Sustainability',
       careers: 'Careers',
       press: 'Press',
@@ -117,19 +123,21 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ marginBottom: '12px' }}>
-                <a href="#" style={{
+                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('shipping'); }} style={{
                   fontSize: '12px',
                   color: '#ffffff',
                   opacity: '0.6',
                   transition: 'opacity 0.3s',
+                  cursor: 'pointer',
                 }}>{t.shipping}</a>
               </li>
               <li style={{ marginBottom: '12px' }}>
-                <a href="#" style={{
+                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('returns'); }} style={{
                   fontSize: '12px',
                   color: '#ffffff',
                   opacity: '0.6',
                   transition: 'opacity 0.3s',
+                  cursor: 'pointer',
                 }}>{t.returns}</a>
               </li>
               <li style={{ marginBottom: '12px' }}>
@@ -141,12 +149,22 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
                 }}>{t.sizeGuide}</a>
               </li>
               <li style={{ marginBottom: '12px' }}>
-                <a href="#" style={{
+                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('faq'); }} style={{
                   fontSize: '12px',
                   color: '#ffffff',
                   opacity: '0.6',
                   transition: 'opacity 0.3s',
+                  cursor: 'pointer',
                 }}>{t.faq}</a>
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('contact'); }} style={{
+                  fontSize: '12px',
+                  color: '#ffffff',
+                  opacity: '0.6',
+                  transition: 'opacity 0.3s',
+                  cursor: 'pointer',
+                }}>{t.contact}</a>
               </li>
               <li style={{ marginBottom: '12px' }}>
                 <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('scta'); }} style={{
@@ -174,7 +192,7 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ marginBottom: '12px' }}>
-                <a href="/about" style={{
+                <a href="/about" onClick={(e) => { e.preventDefault(); onNavigate?.('about'); }} style={{
                   fontSize: '12px',
                   color: '#ffffff',
                   opacity: '0.6',
@@ -204,6 +222,15 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
                   opacity: '0.6',
                   transition: 'opacity 0.3s',
                 }}>{t.press}</a>
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('company'); }} style={{
+                  fontSize: '12px',
+                  color: '#ffffff',
+                  opacity: '0.6',
+                  transition: 'opacity 0.3s',
+                  cursor: 'pointer',
+                }}>{t.company}</a>
               </li>
             </ul>
           </div>
@@ -311,11 +338,12 @@ export default function Footer({ onNavigate }: { onNavigate?: (page: string) => 
               letterSpacing: '1px',
               cursor: 'pointer',
             }}>{t.scta}</a>
-            <a href="#" style={{
+            <a href="#" onClick={(e) => { e.preventDefault(); onNavigate?.('privacy'); }} style={{
               fontSize: '11px',
               color: '#ffffff',
               opacity: '0.4',
               letterSpacing: '1px',
+              cursor: 'pointer',
             }}>{t.privacy}</a>
             <a href="#" style={{
               fontSize: '11px',

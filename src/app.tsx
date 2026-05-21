@@ -7,10 +7,16 @@ import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import AboutPage from './pages/AboutPage';
 import SctaPage from './pages/SctaPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ShippingPage from './pages/ShippingPage';
+import ReturnsPage from './pages/ReturnsPage';
+import ContactPage from './pages/ContactPage';
+import CompanyProfilePage from './pages/CompanyProfilePage';
+import FaqPage from './pages/FaqPage';
 import { CartProvider } from './context/CartContext';
 import { LanguageProvider } from './context/LanguageContext';
 
-type Page = 'home' | 'products' | 'product-detail' | 'about' | 'scta';
+type Page = 'home' | 'products' | 'product-detail' | 'about' | 'scta' | 'privacy' | 'shipping' | 'returns' | 'contact' | 'company' | 'faq';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -39,6 +45,18 @@ export default function App() {
         setCurrentPage('about');
       } else if (path === '/scta') {
         setCurrentPage('scta');
+      } else if (path === '/privacy') {
+        setCurrentPage('privacy');
+      } else if (path === '/shipping') {
+        setCurrentPage('shipping');
+      } else if (path === '/returns') {
+        setCurrentPage('returns');
+      } else if (path === '/contact') {
+        setCurrentPage('contact');
+      } else if (path === '/company') {
+        setCurrentPage('company');
+      } else if (path === '/faq') {
+        setCurrentPage('faq');
       }
     };
 
@@ -62,6 +80,24 @@ export default function App() {
     } else if (page === 'scta') {
       window.history.pushState({}, '', '/scta');
       setCurrentPage('scta');
+    } else if (page === 'privacy') {
+      window.history.pushState({}, '', '/privacy');
+      setCurrentPage('privacy');
+    } else if (page === 'shipping') {
+      window.history.pushState({}, '', '/shipping');
+      setCurrentPage('shipping');
+    } else if (page === 'returns') {
+      window.history.pushState({}, '', '/returns');
+      setCurrentPage('returns');
+    } else if (page === 'contact') {
+      window.history.pushState({}, '', '/contact');
+      setCurrentPage('contact');
+    } else if (page === 'company') {
+      window.history.pushState({}, '', '/company');
+      setCurrentPage('company');
+    } else if (page === 'faq') {
+      window.history.pushState({}, '', '/faq');
+      setCurrentPage('faq');
     }
   };
 
@@ -90,6 +126,18 @@ export default function App() {
         return <AboutPage />;
       case 'scta':
         return <SctaPage />;
+      case 'privacy':
+        return <PrivacyPolicyPage />;
+      case 'shipping':
+        return <ShippingPage />;
+      case 'returns':
+        return <ReturnsPage />;
+      case 'contact':
+        return <ContactPage />;
+      case 'company':
+        return <CompanyProfilePage />;
+      case 'faq':
+        return <FaqPage />;
       default:
         return <HomePage onNavigate={navigate} onProductClick={handleProductClick} />;
     }
