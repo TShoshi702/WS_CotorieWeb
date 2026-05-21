@@ -14,4 +14,13 @@ export default defineConfig({
   build: {
     target: 'es2015',
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://43.165.183.212',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })
