@@ -3,23 +3,28 @@ import { useLanguage } from '../context/LanguageContext';
 interface SctaItem {
   label: Record<string, string>;
   value: Record<string, string>;
+  isEmail?: boolean;
 }
 
 const sctaData: SctaItem[] = [
   {
     label: { zh: '销售商', ja: '販売業者', en: 'Seller' },
-    value: { zh: 'Cotorie', ja: 'Cotorie', en: 'Cotorie' },
+    value: {
+      zh: '元狩（佛山南海）电子商务有限公司（Cotorie）',
+      ja: '元狩（佛山南海）电子商务有限公司（Cotorie）',
+      en: 'Yuanshou (Foshan Nanhai) E-Commerce Co., Ltd. (Cotorie)',
+    },
   },
   {
     label: { zh: '运营负责人', ja: '運営統括責任者', en: 'Representative' },
-    value: { zh: 'LiuBoNeng', ja: 'LiuBoNeng', en: 'LiuBoNeng' },
+    value: { zh: '刘博能', ja: '刘博能', en: 'Liu Boneng' },
   },
   {
     label: { zh: '所在地', ja: '所在地', en: 'Address' },
     value: {
-      zh: '中国广东省佛山市南海区桂城街道南港名轩',
-      ja: 'Nangang Mingxuan, Guicheng Subdistrict, Nanhai District, Foshan City, Guangdong Province, China',
-      en: 'Nangang Mingxuan, Guicheng Subdistrict, Nanhai District, Foshan City, Guangdong Province, China',
+      zh: '〒528200 中国广东省佛山市南海区桂城街道南港名轩',
+      ja: '〒528200 中国広東省佛山市南海区桂城街道南港名轩',
+      en: '〒528200 Nangang Mingxuan, Guicheng Subdistrict, Nanhai District, Foshan City, Guangdong Province, China',
     },
   },
   {
@@ -29,21 +34,22 @@ const sctaData: SctaItem[] = [
   {
     label: { zh: '邮箱', ja: 'メールアドレス', en: 'Email' },
     value: { zh: 'cotorie1@outlook.com', ja: 'cotorie1@outlook.com', en: 'cotorie1@outlook.com' },
+    isEmail: true,
   },
   {
     label: { zh: '售价', ja: '販売価格', en: 'Price' },
     value: {
-      zh: '各商品页面显示的价格（含税）。所有标价均为日元（JPY）',
-      ja: '各商品ページに表示される金額（税込）といたします。表示価格はすべて日本円（JPY）となります',
-      en: 'As displayed on each product page (tax included). All prices are in Japanese Yen (JPY)',
+      zh: '各商品页面显示的价格（含税）。所有标价均为日元（JPY）。',
+      ja: '各商品ページに表示される金額（税込）といたします。表示価格はすべて日本円（JPY）となります。',
+      en: 'As displayed on each product page (tax included). All prices are in Japanese Yen (JPY).',
     },
   },
   {
     label: { zh: '商品以外费用', ja: '商品代金以外の必要料金', en: 'Additional Fees' },
     value: {
-      zh: '另外收取运费。标价已含消费税',
-      ja: '別途、送料がかかります。表示価格には消費税が含まれます',
-      en: 'Separate shipping fees apply. Displayed prices include consumption tax',
+      zh: '另外收取运费（满3,980日元免运费）。标价已含消费税。',
+      ja: '別途、送料がかかります（ただし、3,980円以上のお買い上げで送料無料）。表示価格には消費税が含まれます。',
+      en: 'Separate shipping fees apply (free shipping on orders over ¥3,980). Displayed prices include consumption tax.',
     },
   },
   {
@@ -57,25 +63,25 @@ const sctaData: SctaItem[] = [
   {
     label: { zh: '支付时间', ja: '支払時期', en: 'Payment Timing' },
     value: {
-      zh: '信用卡/PayPay：下单后即时扣款。便利店支付：下单后请在各便利店支付（支付期限为下单后3天内）',
-      ja: 'クレジットカード・PayPay決済：注文完了後すぐに決済が完了します。コンビニ決済：注文後、各コンビニエンスストアにてお支払いください（お支払い期限は注文から3日以内）',
-      en: 'Credit Card/PayPay: Payment is completed immediately upon order. Convenience Store: Please pay at the convenience store after ordering (deadline: within 3 days of order)',
+      zh: '信用卡/PayPay：下单后即时扣款。\n便利店支付：下单后请在各便利店支付（支付期限为下单后3天内）。',
+      ja: 'クレジットカード・PayPay決済：注文完了後すぐに決済が完了します。\nコンビニ決済：注文後、各コンビニエンスストアにてお支払いください（お支払い期限は注文から3日以内）。',
+      en: 'Credit Card/PayPay: Payment is completed immediately upon order.\nConvenience Store: Please pay at the convenience store after ordering (deadline: within 3 days of order).',
     },
   },
   {
     label: { zh: '发货时间', ja: '商品の引渡し時期', en: 'Delivery' },
     value: {
-      zh: '下单后3个工作日内发货。通常发货后5-10个工作日送达，根据配送地区和状况有所不同',
-      ja: 'ご注文から3営業日以内に発送いたします。配送状況や地域によって異なりますが、通常、発送から5〜10営業日でのお届けとなります',
-      en: 'Ships within 3 business days of order. Delivery typically takes 5-10 business days from shipment, depending on region and conditions',
+      zh: '下单后3个工作日内发货。通常发货后5-10个工作日送达，根据配送地区和状况有所不同。',
+      ja: 'ご注文から3営業日以内に発送いたします。配送状況や地域によって異なりますが、通常、発送から5～10営業日でのお届けとなります。',
+      en: 'Ships within 3 business days of order. Delivery typically takes 5–10 business days from shipment, depending on region and conditions.',
     },
   },
   {
     label: { zh: '退换货', ja: '返品・交換について', en: 'Returns & Exchange' },
     value: {
-      zh: '仅限未使用商品，到货后7天内联系方可退换。顾客原因退换货运费由顾客承担。初始瑕疵品由本公司承担退换货运费',
-      ja: '未使用品に限り、商品到着後7日以内にご連絡いただいた場合に限り返品・交換をお受けいたします。ただし、お客様のご都合による返品・交換の送料はお客様のご負担とさせていただきます。初期不良品については、当社負担で返品・交換に対応いたします',
-      en: 'Unused items only, within 7 days of receipt. Return shipping for customer convenience is borne by the customer. Defective items are handled at our expense',
+      zh: '仅限未使用商品，到货后7天内联系方可退换。顾客原因退换货运费由顾客承担。初始瑕疵品由本公司承担退换货运费。',
+      ja: '未使用品に限り、商品到着後7日以内にご連絡いただいた場合に限り返品・交換をお受けいたします。お客様のご都合による返品・交換の送料はお客様のご負担とさせていただきます。初期不良品については、当社負担で返品・交換に対応いたします。',
+      en: 'Unused items only, within 7 days of receipt. Return shipping for customer convenience is borne by the customer. Defective items are handled at our expense.',
     },
   },
   {
@@ -97,6 +103,29 @@ const pageTitles: Record<string, string> = {
 export default function SctaPage() {
   const { language } = useLanguage();
   const lang = (language || 'ja') as string;
+
+  const renderValue = (item: SctaItem) => {
+    const text = item.value[lang] || item.value.ja;
+
+    if (item.isEmail) {
+      return (
+        <a
+          href={`mailto:${text}`}
+          style={{ color: '#6b5b4e', textDecoration: 'underline' }}
+        >
+          {text}
+        </a>
+      );
+    }
+
+    // Handle line breaks
+    return text.split('\n').map((line, i) => (
+      <span key={i}>
+        {i > 0 && <br />}
+        {line}
+      </span>
+    ));
+  };
 
   return (
     <div style={{ backgroundColor: '#faf6f2', minHeight: '80vh' }}>
@@ -172,7 +201,7 @@ export default function SctaPage() {
                     backgroundColor: '#fff',
                   }}
                 >
-                  {item.value[lang] || item.value.ja}
+                  {renderValue(item)}
                 </td>
               </tr>
             ))}
