@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { Product } from '../types';
 
-const WP_DOMAIN = import.meta.env.VITE_WP_DOMAIN || 'cotorie.com';
-const API_BASE = `/api/wp-json/wc/store/v1`;
+const WP_DOMAIN = import.meta.env.VITE_WP_DOMAIN || '43.165.183.212';
+// 开发模式用代理，生产模式直连
+const API_BASE = import.meta.env.DEV 
+  ? `/api/wp-json/wc/store/v1`
+  : `http://${WP_DOMAIN}/wp-json/wc/store/v1`;
 
 // ─── WC Store API 响应类型（与 REST API v3 格式不同）────────────
 interface WcStoreImage {
